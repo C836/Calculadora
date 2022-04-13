@@ -1,0 +1,13 @@
+body{
+    background: #181a1f;
+
+    .Calculadora{
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 360px;
+        height: 475px;
+        background: #20232a;
+        padding: 20px;
+    }
+}

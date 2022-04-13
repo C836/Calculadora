@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+.Numbers{   
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    & .Clear{
+        grid-area: 2 / 4 / 4 / 5;
+        background-color: #3b4253;
+    }
+
+    & .Equal{
+        height: auto;
+        grid-area: 3 / 4 / 5 / 5;
+        background-color: #36dff8;
+    }
+}
+
+.Operators Button{
+    background-color: #3b4253;
+}
+
+button{
+    background: #32363f;
+    width: 75px; height: 75px;
+    cursor: pointer;
+    font: 45px 'Poppins', sans-serif;
+    margin: 7.5px;
+    color: white;
+    outline: none;
+    border: 0;
+}
