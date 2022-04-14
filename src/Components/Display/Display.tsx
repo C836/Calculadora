@@ -4,8 +4,8 @@ const Display = (props:any) => {
     return(
         <section className="Display">
             <span>
-                <div>{props.Value.hold}{props.Value.operator}</div>
-                <div>{props.Value.main}</div>
+                <div>{props.Value.Hold}{props.Value.Operator}</div>
+                <div>{props.Value.Main}</div>
             </span>
         </section>
     )

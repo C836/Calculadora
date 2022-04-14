@@ -3,46 +3,48 @@ import './App.scss';
 import Display from '../Components/Display/Display';
 import BtnNumbers from '../Components/Buttons/Numbers';
 import DefaultOperators from '../Components/Buttons/defaultOperators';
+import Math from '../Logic/Math';
 
 function App() {
-  const [main, setMain] = useState<string>()
-  const [hold, setHold] = useState<string>()
-  const [operator, setOperator] = useState<string>()
+  const [Main, setMain] = useState<string>()
+  const [Hold, setHold] = useState<string>()
+  const [Operator, setOperator] = useState<string>()
 
-  const Numbers = function Numbers(num:number){
-    setMain(main===undefined? `${num}`:`${main}${num}`)
-  }
-
-  function Clear(){
-    setMain('⠀');
-    setOperator('');
-    setHold('')
+  function Update(main:any, operator:any, hold:any){
+    if(operator==='Numbers') {
+      setMain(Main===undefined? `${main}`:`${Main}${main}`);
+      return
+    }
+    setMain(main); setOperator(operator); setHold(hold)
   }
 
   function Operators(op:string){
-    if(operator===undefined){
-        setHold(main);
+    if(Operator===undefined||Operator===''){
+        setHold(Main);
         setMain('⠀');
-    } else if((main&&operator&&hold)!==undefined){
-        setHold(Calculate())
-        setMain('⠀');
+    } else if((Main&&Operator&&Hold)!==undefined&&Main!=='⠀'){
+        Calculate(false)
     } setOperator(op);
   }
 
-  function Calculate(){
-    let result = Function(`return ` + `${hold}${operator}${(main||'').replace('⠀','')}`)();
-    setOperator('');
-    setMain(result);
-    setHold('');
-    return result
+  function Calculate(op:boolean){
+    if(op===false){
+      Math(Main, Operator, Hold, (res:any)=>{
+        Update('⠀', '-', res.main);
+      })
+    } else {
+      Math(Main, Operator, Hold, (res:any)=>{
+        Update(res.main, res.op, res.hold)
+      })
+    }
   }
 
   return(
     <main className='Calculadora'>
-      <Display Value={{main, operator, hold}} />
+      <Display Value={{Main, Operator, Hold}} />
       <div className='ButtonsGrid'>
         <DefaultOperators Operators={Operators} />
-        <BtnNumbers Methods={{Numbers, Calculate, Clear}} />
+        <BtnNumbers Methods={{Calculate, Update}} />
       </div>
     </main>
   )
