@@ -1,35 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-.Numbers{   
+button{
+    background: #32363f;
+    width: 65px; height: 65px;
+    cursor: pointer;
+    font: 40px 'Poppins', sans-serif;
+    margin: 7.5px;
+    color: white;
+    outline: none;
+    border: 0;
+}
+
+.Numbers, .Actions{
+    position: absolute;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+}
 
-    & .Clear{
-        grid-area: 2 / 4 / 4 / 5;
-        background-color: #3b4253;
+.Numbers{
+    width: 230px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.Actions{
+    pointer-events: none;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    & button{
+        background-color: #494d57;
+        pointer-events:all;
     }
 
+    & :nth-child(1){grid-area: 1 / 4}
+    & :nth-child(2){grid-area: 2 / 4}
+    & :nth-child(3){grid-area: 3 / 4}
+    & :nth-child(4){grid-area: 4 / 3}
+    & :nth-child(5){grid-area: 4 / 2}
+
     & .Equal{
-        height: auto;
-        grid-area: 3 / 4 / 5 / 5;
         background-color: #36dff8;
+        grid-area: 4 / 4
     }
 }
 
 .Operators Button{
     background-color: #3b4253;
-}
-
-button{
-    background: #32363f;
-    width: 75px; height: 75px;
-    cursor: pointer;
-    font: 45px 'Poppins', sans-serif;
-    margin: 7.5px;
-    color: white;
-    outline: none;
-    border: 0;
 }

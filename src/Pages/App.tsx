@@ -1,50 +1,35 @@
 import React, {useState} from 'react';
 import './App.scss';
 import Display from '../Components/Display/Display';
-import BtnNumbers from '../Components/Buttons/Numbers';
-import DefaultOperators from '../Components/Buttons/defaultOperators';
-import Math from '../Logic/Math';
+import Keyboard from '../Components/Buttons/Keyboard';
+import OperatorsDefault from '../Components/Buttons/Operators-Default';
+
+import Math from '../Logic/Operations';
+import Update from '../Logic/Update';
 
 function App() {
   const [Main, setMain] = useState<string>()
-  const [Hold, setHold] = useState<string>()
-  const [Operator, setOperator] = useState<string>()
+  const [Op, setOperator] = useState<string>()
 
-  function Update(main:any, operator:any, hold:any){
-    if(operator==='Numbers') {
-      setMain(Main===undefined? `${main}`:`${Main}${main}`);
-      return
-    }
-    setMain(main); setOperator(operator); setHold(hold)
+  function Transform(Method:string, op?:string){
+    Update(Main||'', Method, op||'', (res:any)=>{
+      setMain(res.main);
+      setOperator(res.op!==undefined? res.op : Op)
+    })
   }
 
-  function Operators(op:string){
-    if(Operator===undefined||Operator===''){
-        setHold(Main);
-        setMain('⠀');
-    } else if((Main&&Operator&&Hold)!==undefined&&Main!=='⠀'){
-        Calculate(false)
-    } setOperator(op);
-  }
-
-  function Calculate(op:boolean){
-    if(op===false){
-      Math(Main, Operator, Hold, (res:any)=>{
-        Update('⠀', '-', res.main);
-      })
-    } else {
-      Math(Main, Operator, Hold, (res:any)=>{
-        Update(res.main, res.op, res.hold)
-      })
-    }
+  function Calculate(){
+    Math(Main||'', Op||'', (res:any)=>{
+      setMain(res);
+    })
   }
 
   return(
     <main className='Calculadora'>
-      <Display Value={{Main, Operator, Hold}} />
+      <Display Value={Main} />
       <div className='ButtonsGrid'>
-        <DefaultOperators Operators={Operators} />
-        <BtnNumbers Methods={{Calculate, Update}} />
+        <OperatorsDefault Update={{Transform}}/>
+        <Keyboard Methods={{Calculate, Transform}} />
       </div>
     </main>
   )

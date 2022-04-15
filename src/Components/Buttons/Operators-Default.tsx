@@ -1,12 +1,12 @@
 import './Buttons.scss'
 
-const DefaultOperators = (props:any) =>{
+const OperatorsDefault = (props:any) =>{
     const arrOperators=['+','-','*','/']
 
     return(
         <section className='Operators'>
             {arrOperators.map((item, index) => (
-                <button onClick={()=>props.Operators(item)}>
+                <button onClick={()=>props.Update.Transform('Default', item)}>
                     {item}
                 </button>
             ))}
@@ -14,4 +14,4 @@ const DefaultOperators = (props:any) =>{
     )
 }
 
-export default DefaultOperators
+export default OperatorsDefault

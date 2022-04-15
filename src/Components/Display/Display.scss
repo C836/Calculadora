@@ -7,7 +7,7 @@
     align-content: center;
     align-items: flex-end;
     background-color: #32363f;
-    width: 325px; height: 80px;
+    width: 285px; height: 80px;
     margin: 7.5px;
     padding: 10px;
     color: white;
@@ -15,14 +15,5 @@
     & div{
         font: 45px 'Poppins', sans-serif;
         text-align: right;
-    }
-
-    & div:nth-child(2){
-        line-height: 45px;
-    }
-
-    & div:nth-child(1){
-        font: 25px 'Poppins', sans-serif;
-
     }
 }
