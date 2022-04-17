@@ -8,8 +8,8 @@ import Math from '../Logic/Operations';
 import Update from '../Logic/Update';
 
 function App() {
-  const [Main, setMain] = useState<string>()
-  const [Op, setOperator] = useState<string>()
+  const [Main, setMain] = useState<string>('')
+  const [Op, setOperator] = useState<string>('')
 
   function Transform(Method:string, op?:string){
     Update(Main||'', Method, op||'', (res:any)=>{
