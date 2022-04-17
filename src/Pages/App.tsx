@@ -12,6 +12,7 @@ function App() {
   const [Op, setOperator] = useState<string>('')
 
   function Transform(Method:string, op?:string){
+    console.log(Method, op)
     Update(Main||'', Method, op||'', (res:any)=>{
       setMain(res.main);
       setOperator(res.op!==undefined? res.op : Op)

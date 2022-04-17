@@ -1,7 +1,10 @@
 function Update(Main:string, method:any, Op:string, res:any){
     let a = Main; let b
     let previous = Main.substring(Main.length-1)
-    console.log(method)
+
+    if(Main===('Erro'||Main==='Infinity'||Main==='NaN')){
+        Main=''
+    }
 
     switch(method){
         case 'Numbers':
@@ -31,12 +34,11 @@ function Update(Main:string, method:any, Op:string, res:any){
                 b = Op; break
             } break
         case '(':
-            if((method!=='Numbers' && ''+Number(previous)===previous)||previous==='('){
             a = Main + method;
-        } break
+        break
 
         case ')':
-            if((method!=='Numbers' && ''+Number(previous)===previous&&Main.split("(").length - 1)||previous===')'){
+            if((Main.split('(').length)>(Main.split(')').length)){
             a = Main + method;
         } break
 
