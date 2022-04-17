@@ -14,7 +14,6 @@ const Keyboard = (props:any) => {
             props.Methods.Calculate()
         }
     }
-    
 
     return(
         <section className='Keyboard'>
