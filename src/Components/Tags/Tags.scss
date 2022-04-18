@@ -1,0 +1,28 @@
+.Tags{
+    position: absolute;
+    top:50%; left:50%;
+    width: 90px;
+    z-index: -99;
+    border-radius: 10px;
+    cursor: pointer;
+
+    & .Icon{
+        height: 25px;
+        padding: 10px;
+    }
+}
+
+.Switch{
+    transform: translate(-240px,-140px);
+    color: var(--font);
+    background-color: var(--darkSwitch);
+}
+
+.More{
+    transform: translate(135px,-149px);
+    height: 60px;
+    padding-top: 14px;
+    text-align: end;
+    color: var(--font);
+    background-color: rgb(255, 166, 0);
+}

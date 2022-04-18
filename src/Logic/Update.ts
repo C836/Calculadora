@@ -1,9 +1,10 @@
 function Update(Main:string, method:any, Op:string, res:any){
     let a = Main; let b
     let previous = Main.substring(Main.length-1)
+    console.log(Main)
 
-    if(Main===('Erro'||Main==='Infinity'||Main==='NaN')){
-        Main=''
+    if(Main==='Erro'||Main==='Infinity'||Main==='NaN'){
+        Main=''; a=''; b='';
     }
 
     switch(method){
@@ -18,14 +19,14 @@ function Update(Main:string, method:any, Op:string, res:any){
             a = Main.slice(0, -1); break
 
         case 'Default':
-            if(previous.match(/[0-9]/g)){
+            if(previous.match(/[0-9]/g)||previous.match(/[()]/g)){
                 console.log('09')
                 a = Main + Op
                 b = Op; break
             }
-            else if (previous===''&&Op==='-'){
+            else if (Op==='-'&&previous!=='-'){
                 console.log('empty')
-                a = Op
+                a = Main + Op
                 b = Op; break
             }
             else if (previous.match(/[+*/-]/g)&&Main.substring(Main.length-2).match(/[0-9]/g)){
@@ -43,7 +44,9 @@ function Update(Main:string, method:any, Op:string, res:any){
         } break
 
         case '.':
-            a = Main + method; break
+            if(previous.match(/[0-9]/g)){
+            a = Main + method; 
+            }break
     }
 
     res({

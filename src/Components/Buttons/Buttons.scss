@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 button{
-    background: #32363f;
+    background: var(--button);
     width: 65px; height: 65px;
     cursor: pointer;
     font: 40px 'Poppins', sans-serif;
     margin: 7.5px;
-    color: white;
+    color: var(--font);
     outline: none;
     border: 0;
 }
@@ -30,7 +30,7 @@ button{
     grid-template-rows: repeat(4, 1fr);
 
     & button{
-        background-color: #494d57;
+        background-color: var(--alter);
         pointer-events:all;
     }
 
@@ -41,11 +41,11 @@ button{
     & :nth-child(5){grid-area: 4 / 2}
 
     & .Equal{
-        background-color: #36dff8;
+        background-color: var(--equal);
         grid-area: 4 / 4
     }
 }
 
 .Operators Button{
-    background-color: #3b4253;
+    background-color: var(--operators);
 }

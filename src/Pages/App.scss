@@ -1,5 +1,9 @@
-body{
-    background: #181a1f;
+main{
+    position: absolute;
+    z-index: -99;
+    width: 100%;
+    height: 100vh;
+    background: var(--background);
 
     .Calculadora{
         position: absolute;
@@ -7,7 +11,36 @@ body{
         transform: translate(-50%, -50%);
         width: 320px;
         height: 487.5px;
-        background: #20232a;
+        background: var(--main);
         padding: 20px;
+        border: solid 1px var(--border);
     }
+}
+
+.Dark{
+    --background:#181a1f;
+    --main:#20232a;
+    --border: transparent;
+    --display:#32363f;
+    --button:#32363f;
+        --operators:#3b4253;
+        --alter:#494d57;
+        --equal:#36dff8;
+    --font:white;
+
+    --darkSwitch:#2b313d;
+}
+  
+.Light{
+    --background:#ffffff;
+    --main:#e4e4e4;
+    --border: #c7c7c7;
+    --display:#ffffff;
+    --button:#a7dfff;
+        --operators:#3da7e4;
+        --alter:#78c8f7;
+        --equal:#00b4cf;
+    --font:rgb(27, 27, 27);
+
+    --darkSwitch:#c2c2c2;
 }

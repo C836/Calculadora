@@ -8,9 +8,11 @@ const Keyboard = (props:any) => {
     window.onkeydown=(e)=>{
         if(e.key.match(/^[0-9]*$/)){
             props.Methods.Transform('Numbers', e.key)
-        } else if(e.key.match(/[.()/+*-]/)){
+        } 
+        else if(e.key.match(/[.()/+*-]/)){
             props.Methods.Transform('Default', e.key)
-        } else if (e.key==='Enter'){
+        } 
+        else if (e.key==='Enter'){
             props.Methods.Calculate()
         }
     }
