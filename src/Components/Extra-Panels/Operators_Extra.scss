@@ -1,0 +1,86 @@
+.Operators_Extra{
+    & div, span{
+        position: absolute;
+        left: 50%; top: 50%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    & div {
+        background-color: rgb(255, 166, 0);
+        transform: translate(calc(-50% + 80px), calc(-50% - 19px));
+        padding: 10px; padding-left: 30px;
+        border-radius: 10px;
+        transition: all 0.5s ease-in-out;
+
+        & .Extra{
+            background: rgb(235, 129, 8);
+            width: 65px; height: 65px;
+            cursor: pointer;
+            font: 40px 'Poppins', sans-serif;
+            margin: 7.5px;
+            color: var(--font);
+            outline: none;
+            border: 0;
+        }
+    }
+
+    & span{
+        pointer-events: none;
+        width: 160px;
+        height: 400px;
+        z-index: 99;
+        transform: translate(calc(-50% + 269px), calc(-50% + 21px));
+    }
+}
+
+.Operators-Active div{
+    transform: translate(calc(-50% + 259px), calc(-50% - 19px));
+}
+
+.Pop_Up{
+    display: grid;
+    transform: translate(-70px, 40px);
+    pointer-events: all;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    position: absolute;
+    z-index: 200;
+    width: 200px;
+    padding: 10px; 
+    background-color: aquamarine;
+    gap: 10px;
+
+    & *{
+        border: 0; outline: 0;
+    }
+
+    & input{
+        width:100%;
+        padding: 10px;
+        font-size: 25px;
+        height: 40px;
+        padding: 10px; outline: 0;
+        box-sizing: border-box;
+    }
+
+    & button:nth-of-type(1){
+        width: 100%;
+        height: 40px;
+        grid-area: 2 / 1 / 2 / 4
+    }
+
+    & button:nth-of-type(2){
+        width: 100%;
+        height: 40px;
+        grid-area: 2 / 5 / 2 / 4
+    }
+
+    & .Main{
+        grid-area: 1 / 1 / 1 / 5;
+    }
+}
+
+.hide{
+    display: none;
+}

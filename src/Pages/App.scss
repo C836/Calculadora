@@ -33,7 +33,7 @@ main{
   
 .Light{
     --background:#ffffff;
-    --main:#e4e4e4;
+    --main:#ececec;
     --border: #c7c7c7;
     --display:#ffffff;
     --button:#a7dfff;
@@ -43,4 +43,8 @@ main{
     --font:rgb(27, 27, 27);
 
     --darkSwitch:#c2c2c2;
+}
+
+.hide{
+    display: none;
 }

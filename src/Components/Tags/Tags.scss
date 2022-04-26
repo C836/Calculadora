@@ -25,4 +25,14 @@
     text-align: end;
     color: var(--font);
     background-color: rgb(255, 166, 0);
+    transition: transform 0.5s ease-in-out;
+}
+
+.More-Active{
+    transform: translate(315px, -149px);
+    height: 60px;
+    padding-top: 14px;
+    color: var(--font);
+    background-color: rgb(255, 166, 0);
+    transition: transform 0.5s ease-in-out;
 }

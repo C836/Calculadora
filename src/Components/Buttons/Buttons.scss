@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-button{
+.Keyboard button, .Operators button{
     background: var(--button);
     width: 65px; height: 65px;
     cursor: pointer;
@@ -48,4 +48,8 @@ button{
 
 .Operators Button{
     background-color: var(--operators);
+}
+
+.Extra{
+    background-color: #e47712c4
 }

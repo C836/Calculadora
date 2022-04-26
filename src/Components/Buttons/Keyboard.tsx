@@ -1,19 +1,18 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
 import './Buttons.scss'
-import {useEffect, useState} from 'react'
 
 const Keyboard = (props:any) => {
     const order1=[7,8,9,4,5,6,1,2,3,0]
-    const order2=['C','␡','.',')','(']
+    const order2=['C',<FontAwesomeIcon className='Icon' icon={faDeleteLeft} />,'.',')','(']
 
     window.onkeydown=(e)=>{
-        if(e.key.match(/^[0-9]*$/)){
-            props.Methods.Transform('Numbers', e.key)
-        } 
-        else if(e.key.match(/[.()/+*-]/)){
-            props.Methods.Transform('Default', e.key)
-        } 
-        else if (e.key==='Enter'){
-            props.Methods.Calculate()
+        if(props.Methods.Focused===false){
+        e.key==='Enter'? 
+            (props.Methods.Calculate())
+            :
+            (props.Methods.Transform(e.key.match(/^[0-9]*$/) ? 'Normal' : 
+                e.key.match(/[.()/+*-]/) ? 'Default' : '' , e.key))
         }
     }
 
@@ -21,7 +20,7 @@ const Keyboard = (props:any) => {
         <section className='Keyboard'>
             <div className='Numbers'>
                 {order1.map((item, index) => (
-                    <button className='Number' onClick={()=>props.Methods.Transform('Numbers', `${item}`)}>
+                    <button className='Number' key={index} onClick={()=>props.Methods.Transform('Normal', `${item}`)}>
                         {item}
                     </button>
                     
