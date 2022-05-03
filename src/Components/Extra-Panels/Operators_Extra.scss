@@ -1,5 +1,5 @@
 .Operators_Extra{
-    & div, span{
+    & .Extra_Buttons, .PopUp_Wrapper{
         position: absolute;
         left: 50%; top: 50%;
         display: grid;
@@ -7,9 +7,9 @@
         grid-template-rows: repeat(4, 1fr);
     }
 
-    & div {
+    & .Extra_Buttons {
         background-color: rgb(255, 166, 0);
-        transform: translate(calc(-50% + 80px), calc(-50% - 19px));
+        transform: translate(calc(-50% + 80px), calc(-50% + 21px));
         padding: 10px; padding-left: 30px;
         border-radius: 10px;
         transition: all 0.5s ease-in-out;
@@ -26,30 +26,41 @@
         }
     }
 
-    & span{
+    & .PopUp_Wrapper{
         pointer-events: none;
         width: 160px;
-        height: 400px;
+        height: 320px;
         z-index: 99;
         transform: translate(calc(-50% + 269px), calc(-50% + 21px));
     }
 }
 
-.Operators-Active div{
-    transform: translate(calc(-50% + 259px), calc(-50% - 19px));
+.Operators-Active .Extra_Buttons{
+    transform: translate(calc(-50% + 259px), calc(-50% + 21px));
 }
 
 .Pop_Up{
     display: grid;
-    transform: translate(-70px, 40px);
+    transform: translate(-70px, 87px);
     pointer-events: all;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     position: absolute;
     z-index: 200;
     width: 200px;
     padding: 10px; 
-    background-color: aquamarine;
+    border: 1px white solid;
+    background-color: rgb(235, 129, 8);
     gap: 10px;
+
+    & .Triangle{
+        position: absolute; 
+        top: 50%; left: 50%;
+        transform: translate(-50%,-67px);
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 12px solid rgb(255, 255, 255);
+        outline: 10px ;
+    }
 
     & *{
         border: 0; outline: 0;

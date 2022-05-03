@@ -9,6 +9,7 @@ function Pop_Up(props:any){
         className={`Pop_Up ${props.Values.Focused===false?'hide':''}`}
         style={{gridArea:`${GridPosition[0]}/${GridPosition[1]}`}}
         >
+            <div className='Triangle'></div>
 
             <input 
             ref={props.Values.inputFocus}

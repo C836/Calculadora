@@ -3,7 +3,7 @@ import {useState, useRef} from 'react';
 import Pop_Up from './Pop_Up'
 
 function Operators_Extra(props:any){
-    const order = ['√','³√','x²','^','10ˣ','π','%'];
+    const order = ['√','³√','x²','^','10ˣ','π','%','!'];
     const posOrder = [1,1,2,2,3,3,4,4,5,5];
     const Active = props.Switch.Active === 'More-Active' ? 'Operators-Active' : '';
     const Focused = props.Switch.Focused;
@@ -42,7 +42,7 @@ function Operators_Extra(props:any){
 
     return(
         <section className={`Operators_Extra ${Active}`}>
-            <div>
+            <div className='Extra_Buttons'>
                 {order.map((item, index) => (
                     <button 
                     key={index} 
@@ -53,7 +53,7 @@ function Operators_Extra(props:any){
                     </button> 
                 ))}
             </div>
-            <span>
+            <span className='PopUp_Wrapper'>
                 <Pop_Up Values={{Update, Focus, setValue, Focused, inputFocus, position, popType, popValue}} />
             </span>
         </section>
